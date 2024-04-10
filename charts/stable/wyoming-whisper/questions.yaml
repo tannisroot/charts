@@ -270,6 +270,17 @@ questions:
                 description: large-v2
               - value: large-v3
                 description: large-v3
+              - value: custom
+                description: custom
+            show_subquestions_if: custom
+            subquestions:
+              - variable: custom_model
+                label: Custom Model
+                description: 'Path to a converted model directory, or a CTranslate2-converted Whisper model ID from the HuggingFace Hub like "Systran/faster-distil-whisper-small.en".'
+                schema:
+                  type: string
+                  required: true
+                  default: ""
         - variable: beam_size
           label: Beam Size
           description: Number of candidates to consider simultaneously during transcription.

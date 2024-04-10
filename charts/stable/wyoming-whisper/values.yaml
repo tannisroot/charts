@@ -4,7 +4,8 @@ image:
   tag: 2.1.0@sha256:ceaa162ec05e53b8fa883182cdbceb72e6a1422740ec35be038c9faa278323b3
 wyoming_whisper:
   language: en
-  model: tiny-int8
+  custom_model: ""
+  model: "{{ if .Values.wyoming_whisper.custom_model }}{{ .Values.wyoming_whisper.custom_model }}{{ else }}tiny-int8{{ end }}"
   beam_size: 1
 workload:
   main:
