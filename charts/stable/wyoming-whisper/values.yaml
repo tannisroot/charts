@@ -26,6 +26,8 @@ workload:
             - "{{ .Values.wyoming_whisper.language }}"
             - --model
             - "{{ .Values.wyoming_whisper.model }}"
+            - --custom_model
+            - "{{ .Values.wyoming_whisper.custom_model }}"
             - --beam-size
             - "{{ .Values.wyoming_whisper.beam_size }}"
 service:
