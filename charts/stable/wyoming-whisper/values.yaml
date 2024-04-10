@@ -30,6 +30,8 @@ workload:
             - "{{ .Values.wyoming_whisper.custom_model }}"
             - --beam-size
             - "{{ .Values.wyoming_whisper.beam_size }}"
+            - --initial_prompt
+            - "{{ .Values.wyoming_whisper.initial_prompt }}"
 service:
   main:
     ports:
