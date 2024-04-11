@@ -5,7 +5,7 @@ image:
 wyoming_whisper:
   language: en
   custom_model: ""
-  model: "{{ if .Values.wyoming_whisper.custom_model }}{{ .Values.wyoming_whisper.custom_model }}{{ else }}tiny-int8{{ end }}"
+  model: tiny-int8
   beam_size: 1
   initial_prompt: ""
 workload:
@@ -23,15 +23,7 @@ workload:
             startup:
               port: 10300
               type: tcp
-          args:
-            - --language
-            - "{{ .Values.wyoming_whisper.language }}"
-            - --model
-            - "{{ .Values.wyoming_whisper.model }}"
-            - --beam-size
-            - "{{ .Values.wyoming_whisper.beam_size }}"
-            - --initial-prompt
-            - "{{ .Values.wyoming_whisper.initial_prompt }}"
+          args: []
 service:
   main:
     ports:
