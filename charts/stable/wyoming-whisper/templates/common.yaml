@@ -1,1 +1,6 @@
 {{ include "tc.v1.common.loader.all" . }}
+
+{{- $newArgs :=  (include "wyoming_whisper.args" . | fromYaml) }}
+{{- $_ := set .Values "newArgs" $newArgs -}}
+{{- $mergedargs := concat $.Values.workload.main.podSpec.containers.main.args .Values.newArgs.args }}
+{{- $_ := set $.Values.workload.main.podSpec.containers.main "args" $mergedargs -}}
